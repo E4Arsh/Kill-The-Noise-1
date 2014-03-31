@@ -1,0 +1,158 @@
+#header {
+    background: url("http://www.rheababla.co.uk/wp-content/uploads/2013/02/header.jpg")!important;
+}
+
+.tabbar a.button.cur,.tabbar a.button.cur:hover {
+    color: #FFF;
+    background: #001F3F;
+    border-color: #000;
+}
+
+.closebutton,.minimizebutton {
+    color: #FFF;
+}
+
+.closebutton:hover,.minimizebutton:hover {
+    color: #DDDDDD;
+}
+
+.tabbar a.button {
+    border: solid 1px #000;
+}
+
+.icon-user {
+    color: #001F3F!important;
+}
+
+.maintabbarbottom {
+    background: #001F3F;
+    border: 1px solid #000;
+}
+
+body {
+    background: url("http://i.imgur.com/35dmg2Y.jpg")!important;
+}
+
+.menugroup .button {
+    background: #111111;
+    border-color: #111111;
+    color: #FFF;
+    font-size: 8pt;
+    opacity: .8;
+}
+
+.menugroup .button:hover {
+    background: #001F3F;
+}
+
+.menugroup button.big {
+    font-size: 10pt;
+}
+
+.mainmenufooter a {
+    color: #FFF;
+    font-size: 8pt;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.mainmenufooter a:hover {
+    color: #DDDDDD;
+    text-decoration: none;
+}
+
+.mainmenufooter {
+    color: #D9BADB;
+}
+
+.ps-room.ps-room-light {
+    opacity: .99;
+}
+
+.ps-room {
+    border-left: 2px solid #6F6F6F;
+}
+
+.userlist {
+    border-right: 1px solid #6F6F6F;
+}
+
+.chat-log-add {
+    border-top: 2px solid #6F6F6F;
+}
+
+.userlist li em.group {
+    color: #535353;
+}
+
+.userlist li button:hover {
+    background: #D5DADD;
+}
+
+.chat-log {
+    background: url("http://i.imgur.com/MeALmsC.png") no-repeat right bottom;
+}
+
+.message-announce {
+    background: #2B375C;
+}
+
+.pm-window h3 {
+    background: #001F3F;
+    color: #FFF;
+    border: 1px solid #000;
+    opacity: .8;
+}
+
+.pm-window h3:hover {
+    color: #DDDDDD;
+}
+
+.pm-window h3 small {
+    color: #FFF;
+}
+
+.pm-log {
+    border: 1px solid #000;
+    background: #F0F0F0;
+    opacity: .86;
+}
+
+.pm-log-add {
+    background: #001F3F;
+    border: 1px solid #000;
+}
+
+.pm-window.focused h3,.pm-window.focused h3:hover {
+    color: #FFF;
+    background: #001F3F;
+}
+
+.broadcast-blue {
+    background-color: #142E50;
+    border: 2px solid #fff;
+}
+
+.broadcast-red {
+    background-color: #520B0B;
+    border: 2px solid #fff;
+}
+
+.broadcast-green {
+    background-color: #0F3A0F;
+    border: 2px solid #fff;
+}
+
+.ps-popup {
+    background: #D8D8D8;
+    border: 1px solid #000;
+}
+
+.ps-popup a {
+    color: #000;
+    text-decoration: none;
+}
+
+.ps-popup a:hover {
+    color: #001F3F;
+}
