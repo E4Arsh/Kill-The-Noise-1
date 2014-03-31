@@ -351,6 +351,16 @@ var User = (function () {
 
 		// initialize
 		users[this.userid] = this;
+
+		// database
+		this.money = 0;
+		this.tourWins = 0;
+		this.views = 0;
+		this.status = '';
+		this.statusTime = '';
+		this.canCustomSymbol = false;
+		this.hasCustomSymbol = false;
+		this.isAway = false;
 	}
 
 	User.prototype.isSysop = false;

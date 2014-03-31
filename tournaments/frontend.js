@@ -560,6 +560,61 @@ var Tournament = (function () {
 	};
 	Tournament.prototype.onTournamentEnd = function () {
 		this.room.add('|tournament|end|' + JSON.stringify({results: this.generator.getResults().map(usersToNames), bracketData: this.getBracketData()}));
+		data = {results: this.generator.getResults().map(usersToNames), bracketData: this.getBracketData()};
+		data = data['results'].toString();
+		runnerUp = false;
+		if (data.indexOf(',') >= 0) { 
+			data = data.split(',');
+			winner = data[0];
+			if (data[1]) runnerUp = data[1];
+		} else {
+			winner = data;
+		}
+		tourSize = this.generator.users.size;
+		if (this.room.isOfficial && tourSize >= 8) {
+			firstMoney = Math.round(tourSize/10);
+			secondMoney = Math.round(firstMoney/2);
+			firstBuck = 'buck';
+			secondBuck = 'buck';
+			if (firstMoney > 1) firstBuck = 'bucks';
+			if (secondMoney > 1) secondBuck = 'bucks';
+			this.room.add('|raw|<b><font color=#24678d>'+Utilities.escapeHTML(winner)+'</font> has also won <font color=#24678d>'+firstMoney+'</font> '+firstBuck+' for winning the tournament!</b>');
+			if (runnerUp) this.room.add('|raw|<b><font color=#24678d>'+Utilities.escapeHTML(runnerUp)+'</font> has also won <font color=#24678d>'+secondMoney+'</font> '+secondBuck+' for winning the tournament!</b>');
+			var winnerUser = Users.get(toUserid(winner));
+			var secondUser = Users.get(toUserid(runnerUp));
+			if (winnerUser === undefined) {
+				this.room.add('Error: winner is undefined');
+			} else if (secondUser === undefined){
+				this.room.add('Error: runnerUp is undefined');
+			}else {
+				io.stdoutNumber('db/money.csv', winnerUser, 'money', firstMoney);
+				if (runnerUp) {
+					setTimeout(function() {
+						io.stdoutNumber('db/money.csv', secondUser, 'money', secondMoney);
+					}, 1000);
+				}
+				io.stdoutNumber('db/tourWins.csv', winnerUser, 'tourWins', 1);
+				setTimeout(function() {
+					io.stdinNumber('db/tourWins.csv', winnerUser, 'tourWins');
+				}, 1000);
+				if (winnerUser.tourWins === 8) {
+					this.room.add('|raw|<b><font size="2">Congratulations to '+winner+' for getting <font color="#545454"><b>Silver</b></font> Rating Tier! You have earned an extra 1 buck!</font></b>');
+					io.stdoutNumber('db/money.csv', winnerUser, 'money', 1);
+				} else if (winnerUser.tourWins === 20) {
+					this.room.add('|raw|<b><font size="2">Congratulations to '+winner+' for getting <font color="#FFD700"><b>Gold</b></font> Rating Tier! You have earned an extra 5 bucks!</font></b>');
+					io.stdoutNumber('db/money.csv', winnerUser, 'money', 5);
+				} else if (winnerUser.tourWins === 40) {
+					this.room.add('|raw|<b><font size="2">Congratulations to '+winner+' for getting <font color="#C0C0C0"><b>Platinum</b></font> Rating Tier! You have earned an extra 10 bucks!</font></b>');
+					io.stdoutNumber('db/money.csv', winnerUser, 'money', 10);
+				} else if (winnerUser.tourWins === 60) {
+					this.room.add('|raw|<b><font size="2">Congratulations to '+winner+' for getting <font color="#236B8E"><b>Diamond</b></font> Rating Tier! You have earned an extra 20 bucks!</font></b>');
+					io.stdoutNumber('db/money.csv', winnerUser, 'money', 20);
+				} else if (winnerUser.tourWins === 100) {
+					this.room.add('|raw|<b><font size="2">Congratulations to '+winner+' for getting <font color="'+Utilities.hashColor(winner)+'"><b>Legend</b></font> Rating Tier! You have earned an extra 30 bucks and promotion to voice!</font></b>');
+					io.stdoutNumber('db/money.csv', winnerUser, 'money', 30);
+				}
+			}
+		}
 		delete exports.tournaments[toId(this.room.id)];
 	};
 

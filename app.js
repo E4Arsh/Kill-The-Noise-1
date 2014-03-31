@@ -435,6 +435,7 @@ fs.readFile('./config/ipbans.txt', function (err, data) {
 
 global.Spamroom = require('./spamroom.js');
 
+// uptime recording
 fs.readFile('./logs/uptime.txt', function (err, uptime) {
 	if (!err) global.uptimeRecord = parseInt(uptime, 10);
 	global.uptimeRecordInterval = setInterval(function () {
@@ -443,3 +444,31 @@ fs.readFile('./logs/uptime.txt', function (err, uptime) {
 		fs.writeFile('./logs/uptime.txt', global.uptimeRecord.toFixed(0));
 	}, (1).hour());
 });
+
+// load source files
+try {
+	global.systemOperators = require('./source/system-operators.js').SystemOperatorOverRide();
+} catch (e) {
+	console.log('Error loading system-operators.js: ' + e.stack);
+}
+try {
+	global.io = require('./source/io.js');
+} catch (e) {
+	console.log('Error loading io.js: ' + e.stack);
+}
+try {
+	global.customCommands = require('./source/custom-commands.js');
+	global.trainerCards = require('./source/trainer-cards.js');
+} catch (e) {
+	console.log('Error loading custom-commands.js or trainer-cards.js: ' + e.stack);
+}
+try {
+	global.profile = require('./source/profile.js');
+} catch (e) {
+	console.log('Error loading profile.js: ' + e.stack);
+}
+try {
+	global.Utilities = require('./source/utilities.js').Utilities;
+} catch (e) {
+	console.log('Error loading utilities.js: ' + e.stack);
+}
