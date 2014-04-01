@@ -57,6 +57,7 @@ var modlog = exports.modlog = {lobby: fs.createWriteStream('logs/modlog/modlog_l
  *     if he's muted, will warn him that he's muted, and
  *     return false.
  */
+<<<<<<< HEAD
  var parse = exports.parse = function (message, room, user, connection, levelsDeep) {
     var comd = '';
     var otarget = '';
@@ -176,6 +177,9 @@ var modlog = exports.modlog = {lobby: fs.createWriteStream('logs/modlog/modlog_l
         }
     }
 	
+=======
+var parse = exports.parse = function(message, room, user, connection, levelsDeep) {
+>>>>>>> parent of 1f47db6... bot adding
 	var cmd = '', target = '';
 	if (!message || !message.trim().length) return;
 	if (!levelsDeep) {
