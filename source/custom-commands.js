@@ -647,8 +647,8 @@ var customCommands = {
 	        profile = require('./profile.js');
 	        
 	        var runningTournaments = Tournaments.tournaments;
-		CommandParser.uncacheTree('./tournaments/frontend.js');
-		Tournaments = require('./tournaments/frontend.js');
+		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/frontend.js'));
+		Tournaments = require(path.join(__dirname, '../', 'tournaments/frontend.js'));
 		Tournaments.tournaments = runningTournaments;
 	        
 	        this.sendReply('Reloading custom-commands.js...');
