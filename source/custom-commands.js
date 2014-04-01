@@ -10,7 +10,8 @@ var customCommands = {
 	/*********************************************************
 	 * General commands
 	 *********************************************************/
-	serverhelp: function(target, room, user) {
+	serverhelp: 'sh',
+	sh: function(target, room, user) {
 		if (!this.canBroadcast()) return false;
 
         if (!target) {
@@ -240,8 +241,9 @@ var customCommands = {
 	/*********************************************************
 	 * Money commands
 	 *********************************************************/
-	givebucks: 'givemoney',
-	givemoney: function (target, room, user) {
+	givebucks: 'gb',
+	givemoney: 'gb',
+	gb: function (target, room, user) {
 	    if (!user.can('lockdown')) return this.sendReply('/givemoney - Access denied.');
 	    if (!target) return this.sendReply('|raw|Give money to a user. Usage: /givemoney <i>username</i>, <i>amount</i>');
 	    if (target.indexOf(',') >= 0) {
