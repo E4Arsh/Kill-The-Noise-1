@@ -30,9 +30,9 @@
 }
 
 body {
-    background: url("http://i.imgur.com/35dmg2Y.jpg")!important;
-    background-repeat:no-repeat;background-position:center}
-}
+    background-image:url("http://i.imgur.com/35dmg2Y.jpg");
+    background-repeat:no-repeat;background-position:center
+    }
 
 .menugroup .button {
     background: #111111;
