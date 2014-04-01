@@ -645,6 +645,12 @@ var customCommands = {
 	        this.sendReply('Reloading profile.js...');
 	        CommandParser.uncacheTree('./source/profile.js');
 	        profile = require('./profile.js');
+	        
+	        this.sendReply('Reloading tournaments...');
+             	CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/frontend.js'));
+             	Tournaments = require(path.join(__dirname, '../', 'tournaments/frontend.js'));
+             	Tournaments.tournaments = runningTournaments;
+
 
 	        this.sendReply('Reloading custom-commands.js...');
 	        CommandParser.uncacheTree('./source/custom-commands.js');
