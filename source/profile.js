@@ -32,7 +32,7 @@ var Profile = {
 		} else if (user.tourWins >= 60 && user.tourWins <= 99) {
 			return ' | Rating tier: <font color="#236B8E"><b>Diamond</b></font><br/>';
 		} else {
-			return ' | Rating tier: <font color="'+Utilities.hashColor(user.name)+'"><b>Legend</b></font><br/>';
+			return ' | Rating tier: <font color="#FF851B"><b>Legend</b></font><br/>';
 		}
 	},
 

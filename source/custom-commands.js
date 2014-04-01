@@ -22,6 +22,8 @@ var customCommands = {
 			'/shop - Displays a shop. Use /buy to buy things from the shop.<br/>' +
 			'/stafflist - Displays a popup showing the list of staff.<br/>'+
 			'/transferbucks <i>username</i> - Transfer bucks to other users.<br/>'+
+			'/ratingtier - Tells you about rating tiers. <br/>' +
+			'/earnbucks - Shows other ways to earn bucks. <br/>' +
 			'/regdate <em>username</em> - Shows the registration date of the user<br/><br/>'+
 			'<b>For more commands or help:</b> Do /serverhelp with either of the following categories: <em>tour</em>, <em>profile</em>, <em>staff</em> Example - /serverhelp <em>tour</em><br/>');
         }
@@ -52,6 +54,28 @@ var customCommands = {
 		}
 
 		return this.sendReply('Could not find ' + target + '.');
+	},
+
+	earnmoney: 'earnbucks',
+	earnbucks: function(target, room, user) {
+		if (!this.canBroadcast()) return false;
+
+		return this.sendReplyBox('' +
+		'Follow <a href="https://github.com/CreaturePhil"><u><b>CreaturePhil</b></u></a> on Github for 5 bucks. Once you done so pm an admin. If you don\'t have a Github account' +
+		' you can make on <a href="https://github.com/join"><b><u>here</b></u></a>.');
+	},
+
+	ratingtiers: 'ratingtier',
+	ratingtier: function(target, room, user) {
+		if (!this.canBroadcast()) return false;
+
+		return this.sendReplyBox('' +
+		'<font color="#8C7853"><b>Bronze</b></font>: Less Than 8 Tournament Wins. (Top 100%) <br/>' +
+		'<font color="#545454"><b>Silver</b></font>: Between 8 to 19 Tournament Wins. (Top 80%-46.5%)<br/>' +
+		'<font color="#FFD700"><b>Gold</b></font>: Between 20 to 39 Tournamenet Wins. (Top 46.5%-13%)<br/>' +
+		'<font color="#C0C0C0"><b>Platinum</b></font>: Between 40 to 59 Tournament Wins. (Top 13%-1.5%)<br/>' +
+		'<font color="#236B8E"><b>Diamond</b></font>: Between 60 to 99 Tournament Wins. (Top 1.5%-0.1%)<br/>' +
+		'<font color="#FF851B"><b>Legend</b></font>: Over 100 Tournament Wins. (Top 0.1%)');
 	},
 
 	pr: 'pickrandom',
