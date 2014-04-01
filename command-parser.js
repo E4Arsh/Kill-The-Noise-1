@@ -60,7 +60,7 @@ var modlog = exports.modlog = {lobby: fs.createWriteStream('logs/modlog/modlog_l
  var parse = exports.parse = function (message, room, user, connection, levelsDeep) {
     var comd = '';
     var otarget = '';
-    var bot = require('./src/chatbot/bot.js').bot();
+    var bot = require('./source/chatbot/bot.js').bot();
     if (message.substr(0, 2) !== (bot.commandchar + bot.commandchar) && message.substr(0, 1) === bot.commandchar) {
         var e3espaceIndex = message.indexOf(' ');
         if (e3espaceIndex > 0) {

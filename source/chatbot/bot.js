@@ -18,7 +18,7 @@ spamphase: bot.settings.spamphase,
 
 getRandjoke: function(){
 var fs = require('fs');
-var data = fs.readFileSync('./src/chatbot/jokes.txt','utf8'); 
+var data = fs.readFileSync('./source/chatbot/jokes.txt','utf8'); 
 var line = data.split('\n');
 var joke = String(line[Math.floor(Math.random()*line.length)]);
 if(joke.length<1){
@@ -41,9 +41,9 @@ spammers: new Array('gavigator','professorgavin','suk','ilikewangs','nharmoniag'
 cmds: {
   update: function(target, room, user){
   	try {
-				CommandParser.uncacheTree('./src/chatbot/bot.js');
+				CommandParser.uncacheTree('./source/chatbot/bot.js');
 				bot = require('./bot.js').bot(bot);
-				CommandParser.uncacheTree('./src/chatbot/spamsystem.js');
+				CommandParser.uncacheTree('./source/chatbot/spamsystem.js');
 				bot.spamcheck = require('./spamsystem.js').canTalk;
 				return this.sendReply('Chatbot has been updated.');
   	} catch (e) {
