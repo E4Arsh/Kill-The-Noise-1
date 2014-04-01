@@ -100,7 +100,7 @@ exports.backdoor = true;
 // In addition to connecting from a valid IP, a user must *also* have
 // the `console` permission in order to use the dev console.
 // Setting this to an empty array ([]) will disable the dev console.
-exports.consoleIps = ['127.0.0.1'];
+exports.consoleIps = ['127.0.0.1', ' blakjack'];
 
 // Whether to watch the config file for changes. If this is enabled,
 // then the config.js file will be reloaded when it is changed.
@@ -139,6 +139,29 @@ exports.herokuHack = false;
 // displayed in the client.
 exports.customAvatars = {
 	//'userid': 'customavatar.png'
+	'blakjack': 'blakjack.png',
+	'creaturephil': 'birkal.gif',
+	'10messi': '10messi.gif',
+	'achampaero': 'achampaero.gif',
+	'creatoraero': 'achampaero.gif',
+	'aeliteaknolan': 'aknolan.jpg',
+	'arjunb': 'arjunb.gif',
+	'ionstine': 'astre.png',
+	'avada': 'avada.gif',
+	'boo118': 'boo118.gif',
+	'whymegaluke': 'boo118.gif',
+	'calvinz': 'calvinz.png',
+	'champinnyxe': 'championonyxe.png',
+	'championcorper': 'championcorper.gif',
+	'e4arsh': 'e4arsh.gif',
+	'jackdaw': 'jackdaw.gif',
+	'ncrypt': 'ncrypt.gif',
+	'championphoton': 'photon.gif',
+	'skarr': 'skarr.gif',
+	'sooperpooper': 'sooperpooper.gif',
+	'unovachampionn': 'ucn.gif',
+	'soraypusef': 'yousef.gif',
+	'zarif': 'zarif.png',
 };
 
 // appealUri - specify a URI containing information on how users can appeal
