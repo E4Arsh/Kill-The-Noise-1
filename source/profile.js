@@ -76,7 +76,7 @@ var cmds = {
 
 	    var height = 75;
 
-	    io.stdoutNumber('db/views.csv', user, 'views', 1);
+	    io.stdoutNumber('db/views.csv', targetUser, 'views', 1);
 
 	    var display = Profile.avatar(targetUser, height) + Profile.name(targetUser) + Profile.views(targetUser) + '<hr>' + Profile.rank(targetUser) + Profile.tier(targetUser) + Profile.money(targetUser) + Profile.tourWins(targetUser) + Profile.status(targetUser) + Profile.statusTime(targetUser);
 	  
