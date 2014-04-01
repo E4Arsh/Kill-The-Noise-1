@@ -452,6 +452,11 @@ try {
 	console.log('Error loading system-operators.js: ' + e.stack);
 }
 try {
+global.bot = require('./source/chatbot/bot.js').bot();
+} catch (e) {
+	console.log('Error loading chatbot/bot.js: ' + e.stack);
+}
+try {
 	global.io = require('./source/io.js');
 } catch (e) {
 	console.log('Error loading io.js: ' + e.stack);
